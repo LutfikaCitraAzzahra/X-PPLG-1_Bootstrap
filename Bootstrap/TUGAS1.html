@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link 
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
+
+    <style>
+        .hero {
+            background-image: url(ASSET/Gambar\ 9.jpeg);
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
+
+        .overlay {
+            background-color: rgba(o, 0, 0, 0.5);
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+    <div 
+        class="overlay d-flex justify-content-center align-items-center text-center"
+    >
+        <div class="text-white">
+            <h1 class="display-5 fw-bold">Selamat Datang!</h1>
+            <p class="fs-5">Di Data Siswa Kelas X PPLG 1</p>
+            <button class="btn btn-primary btn-lg">Lihat Tabel</button>
+            <button class="btn btn-outline-light"> Daftar</button>
+        </div>
+    </div>
+    </div>
+
+    <div class="container text-center ">
+        <h2>Tabel Data Siswa </h2>
+        <p> Data X PPLG 1</p>
+
+    <div class="img-thumbnail">
+    <table class="table table-bordered table-striped table-hover ">
+        <thead class="align-middle text-center">
+            <tr class="table-dark ">
+                <th>No</th>
+                <th>Foto</th>
+                <th>Nama</th>
+                <th>NIS</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody class="align-middle text-center">
+            <tr>
+                <td>1</td>
+                <td>
+                    <img src="ASSET/Gambar 8.jpeg" class="rounded-circle" style="max-width: 80px;">
+                </td>
+                <td class="editb">Lutfika </td>
+                <td class="editb">271020</td>
+                <td><span class="badge bg-success">Aktif</span></td>
+                <td>
+                    <button class="btn btn-warning btn-sm edit-btn">Edit</button>
+                    <button class="btn btn-danger btn-sm delete-btn">Hapus</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    <img src="ASSET/Gambar 7.jpeg" class="rounded-circle" style="max-width: 80px;">
+                </td>
+                <td class="editb">Citra</td>
+                <td class="editb">273010</td>
+                <td><span class="badge bg-warning">Izin</span></td>
+                <td>
+                    <button class="btn btn-warning btn-sm edit-btn">Edit</button>
+                    <button class="btn btn-danger btn-sm delete-btn">Hapus</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>
+                    <img src="ASSET/Gambar 6.jpeg" class="rounded-circle" style="max-width: 80px;">
+                </td>
+                <td class="editb">Azzahra</td>
+                <td class="editb">042710</td>
+                <td><span class="badge bg-danger">Tidak Hadir</span></td>
+                <td>
+                    <button class="btn btn-warning btn-sm edit-btn">Edit</button>
+                    <button class="btn btn-danger btn-sm delete-btn">Hapus</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <br>
+
+    <div class="text-center align-middle">
+        <button class="btn btn-primary ">Tambah Data</button>
+        <button class="btn btn-outline-secondary">Eksplor Excel</button>
+    </div>
+    
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+ <script>
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.closest('tr').remove();
+            });
+        });
+
+        document.querySelectorAll('.edit-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const editbs = row.querySelectorAll('.editb');
+                
+                if (this.textContent === 'Edit') {
+                    editbs.forEach(cell => cell.contentEditable = true);
+                    this.textContent = 'Save';
+                    this.classList.replace('btn-warning', 'btn-success');
+                } else {
+                    editbs.forEach(cell => cell.contentEditable = false);
+                    this.textContent = 'Edit';
+                    this.classList.replace('btn-success', 'btn-warning');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
